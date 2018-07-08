@@ -53,6 +53,8 @@ router.get("/", (req, res, next) => {
 // read a user
 router.get("/:uid", (req, res, next) => {
     const user = res.locals.user;
+    //const Strcoded = window.btoa(user.username + ":" + user.password)
+    console.log('Authenticate :: ', user);
     return res.send(user);
 });
 
@@ -71,7 +73,7 @@ router.post("/login", function (req, res, next) {
     const email    = req.body.email;
     const password = req.body.password;
     if (!email || !password) {
-        return res.send(400 /* Bad Request */);
+        return res.sendStatus(400 /* Bad Request */);
     }
     User.authenticate(email, password).then(user => {
         if (user)

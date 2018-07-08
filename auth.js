@@ -1,5 +1,5 @@
 /*
- * YABE - Authentication & Authorization
+ * Medisrv - Authentication & Authorization
  */
 const passport = require("passport");
 
