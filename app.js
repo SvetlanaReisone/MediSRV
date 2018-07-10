@@ -51,6 +51,8 @@ passport.use(new BasicStrategy((username, password, done) => {
 /* our routers */
 app.use("/api/users", require("./routers/user"));
 app.use("/api/images", require("./routers/images"));
+app.use("/api/personal", require("./routers/personal"));
+
 
 // expose our app to require()
 module.exports = app;

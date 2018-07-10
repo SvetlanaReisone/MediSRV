@@ -1,5 +1,5 @@
 /*
- * YABE - Post
+ * Medicals - images
  */
 "use strict";
 

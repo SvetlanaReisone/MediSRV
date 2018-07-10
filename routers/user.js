@@ -1,5 +1,5 @@
 /*
- * YABE - User router
+ * Medicals - User router
  */
 "use strict";
 

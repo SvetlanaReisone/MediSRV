@@ -1,5 +1,5 @@
 /*
- * YABE - User model
+ * Medicals - User model
  *
  * Has some password dedicated logic.
  */
