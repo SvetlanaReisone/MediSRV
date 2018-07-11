@@ -9,6 +9,9 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const morgan     = require("morgan");
 const passport   = require("passport");
+
+var cors = require('cors')
+
 /* Passport Strategies */
 const BasicStrategy = require("passport-http").BasicStrategy;
 /* our own modules */
@@ -16,6 +19,7 @@ const User = require("./models/user");
 
 /* create our app */
 const app = express();
+app.use(cors());
 
 /* configuration */
 app.locals.name   = require("./package.json").name;
