@@ -1,0 +1,8 @@
+{
+    "server":{
+        "port":3000
+    },
+    "mongodb":{
+        "database":"mongodb://prod-user:prod-user@ds161740.mlab.com:61740/yabe-production"
+    }
+}

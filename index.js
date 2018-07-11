@@ -8,7 +8,7 @@ const app = require("./app");
 
 app.locals.connect().then(()=>{
      console.log(app.locals.name + 'connected to MongoDB');
-     const port = app.locals.config.server.port;
+     const port = process.env.PORT||app.locals.config.server.port;
      app.listen(port, () => {
      console.log(app.locals.name + ' Listening on port ' + port);
     })
