@@ -109,7 +109,7 @@ router.patch("/:id", (req, res, next) => {
 const fs = require('fs');
 
 router.delete("/:id", 
-
+                // delete file fist
     (req, res, next) => {
         const id = req.params.id;
         console.log('REquest ID, FIRST ',id )
@@ -129,7 +129,7 @@ router.delete("/:id",
                 return res.status(404 /* Not Found */).send();
         });
     },
-
+            // delete file reference and collection document
     (req, res, next) => {
         const id = req.params.id;
         console.log('REquest ID, second milldware: ',id )

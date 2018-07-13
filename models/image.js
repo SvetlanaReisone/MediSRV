@@ -7,11 +7,11 @@ const mongoose = require("mongoose");
 
 /* Schema */
 const imageSchema = new mongoose.Schema({
-    user: Object,
-    owner:  String,
-    type:   String,
-    filename : String,
-    description : String
+    user: {type:Object, required:true},
+    owner:  {type: String, required: true},
+    type: {type: String, required: true},
+    filename : {type: String, required: true, unique: true},
+    description : {type: String}
 });
 
 /* Model */

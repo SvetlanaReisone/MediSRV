@@ -7,12 +7,12 @@ const mongoose = require("mongoose");
 
 /* Schema */
 const medicationSchema = new mongoose.Schema({
-    personal_id:  String,
-    name:   String,
-    from_date : Date,
-    to_date : Date,
-    posologie :String,
-    image_id: String
+    personal_id:  {type: String, required: true},
+    name:    {type: String, required: true},
+    from_date : {type:Date, default: Date.now},
+    to_date :  {type:Date},
+    posologie : {type: String},
+    image_id:  {type: String}
 });
 
 /* Model */

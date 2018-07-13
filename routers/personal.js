@@ -18,14 +18,25 @@ router.get("/", (req, res, next) => {
 });
 
 
-// read all the personal of one user
-router.get("/:uid", 
+// read all the personal managed by one user
+router.get("/mng/:uid", 
     (req, res, next) => {
     const userId = req.params.uid;
     Personal.find({user_id: userId}).then(results => {
         return res.send(results);
     }).catch(next);
 });
+
+
+// read a person data by person Id
+router.get("/:uid",
+   (req, res, next) => {
+    const personid = req.params.uid;
+    Personal.findById(personid).then(results => {
+        return res.send(results);
+    }).catch(next);
+   });
+
 
 // add personal data document
 router.post('/',
@@ -39,6 +50,13 @@ router.post('/',
             blood_group: req.body.blood_group
         }).then(created => {
             return res.status(201 /* Created */).send(created);
+        }).catch(err => {
+            if (err.name === 'ValidationError') {
+                return res.status(400 /* Bad Request */).send({
+                    message: err.message
+                });
+            }
+            return next(err);
         });
     });
 
@@ -55,6 +73,20 @@ router.patch("/:id", (req, res, next) => {
     }).catch(next);
 });
 
+
+     //delete personal by Id
+
+router.delete("/:id", 
+            // delete file reference and collection document
+    (req, res, next) => {
+        const id = req.params.id;
+        Personal.findByIdAndRemove(id).then(found => {
+            if (found)
+                return res.send(found);
+            else
+                return res.status(404 /* Not Found */).send();
+        }).catch(next)
+});
 
 // expose our router to require()
 module.exports = router;

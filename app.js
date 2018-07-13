@@ -56,6 +56,7 @@ passport.use(new BasicStrategy((username, password, done) => {
 app.use("/api/users", require("./routers/user"));
 app.use("/api/images", require("./routers/images"));
 app.use("/api/personal", require("./routers/personal"));
+app.use("/api/treatment", require("./routers/medication"));
 
 
 // expose our app to require()

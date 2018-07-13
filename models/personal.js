@@ -8,12 +8,12 @@ const mongoose = require("mongoose");
 
 /* Schema */
 const personalSchema = new mongoose.Schema({
-    user_id: String,
-    firstname:  String,
-    lastname:   String,
-    date_birth : Date,
-    weight : Number,
-    blood_group: String
+    user_id:  {type: String, required: true},
+    firstname:   {type: String, required: true},
+    lastname:   {type: String, required: true},
+    date_birth : {type: Date},
+    weight : {type: Number},
+    blood_group:  {type: String}
 });
 
 /* Model */
